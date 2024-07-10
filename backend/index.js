@@ -14,6 +14,8 @@ app.get("/", (req, res) => {
   res.json("Hello ini backend!");
 });
 
+app.use(express.json)
+
 // mengambil semua data buku
 app.get("/books", (req, res) => {
   const q = "SELECT * FROM books";
