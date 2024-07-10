@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(express.json)
+app.use(cors());
 
 // mengambil semua data buku
 app.get("/books", (req, res) => {
