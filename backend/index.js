@@ -23,6 +23,23 @@ app.get("/books", (req, res) => {
   });
 });
 
+// menambahkan data baru
+app.post("/books", (req, res) => {
+  const q = "INSERT INTO books (`title`, `desc`, `cover`, `price`) VALUES (?)";
+  const value = [
+    "title from backend",
+    "desc from backend",
+    "cover from backend",
+    "price from backend",
+    10000
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("berhasil tambah data buku");
+  })
+});
+
 app.listen(8800, () => {
   console.log("server is running on port 8800");
 });
